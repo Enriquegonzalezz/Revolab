@@ -15,7 +15,7 @@ export default function Home() {
   const [daysRemaining, setDaysRemaining] = useState(INITIAL_DAYS);
   
   // Estado para controlar la imagen de beneficios
-  const [benefitImage, setBenefitImage] = useState('/primer.svg');
+  const [benefitImage, setBenefitImage] = useState('/gentamivina.svg');
   
   // Estado para controlar qué acordeón está abierto
   const [openAccordion, setOpenAccordion] = useState(0);
@@ -168,32 +168,56 @@ export default function Home() {
         )}
 
         <section id="sobre-nosotros" className="representation">
-          <div className="representation-content">
-            <div className="representation-header">
-              <h2 className="representation-title">
-                Revolab <span className="highlight">Casa de Representación</span>
-              </h2>
-              <p className="representation-description">
-                Nace con el compromiso de asumir el portafolio de nuevas y las mejores clases terapéuticas. Ofreciendo una propuesta concreta: Reducir la inercia clínica, en combinación con el Paciente y los Proveedores de Salud
-              </p>
+          <div className="representation-left">
+            <div className="representation-logo-box">
+              <Image
+                src="/Frame 10.png"
+                alt="Revolab"
+                width={120}
+                height={22}
+                unoptimized
+                className="representation-logo"
+              />
+              <h2 className="representation-title">Casa de Representación</h2>
             </div>
 
-            <div className="certifications-card">
-              <h3 className="certifications-title">Certificaciones</h3>
-              <p className="certifications-subtitle">
-                Nuestro portafolio de Productos y Dispositivos Médicos está registrado y autorizado en Venezuela, y han sido fabricados en laboratorios certificados en las mejores prácticas, por Europa y USA, con certification sanitaria EMA y USFDA.
-              </p>
+            <div className="representation-boxes">
+              <div className="info-box">
+                <h3 className="info-box-title">Visión</h3>
+                <p className="info-box-text">
+                  Convertirnos en la empresa farmacéutica líder en la distribución de la próxima generación de medicamentos de alta especialidad.
+                </p>
+              </div>
+
+              <div className="info-box">
+                <h3 className="info-box-title">Misión</h3>
+                <p className="info-box-text">
+                  Acelerar la adopción y el acceso a moléculas más eficaces para los pacientes y profesionales de la salud.
+                </p>
+              </div>
             </div>
+
+            <div className="certifications-box">
+              <h3 className="certifications-box-title">Certificaciones</h3>
+              <p className="certifications-box-text">
+                Nuestro portafolio de Productos y Dispositivos Médicos está registrado y autorizado en Venezuela, y han sido fabricados en laboratorios certificados en las mejores prácticas, por Europa y USA, con certificación sanitaria EMA y USFDA.
+              </p>
+              <div className="certifications-logos">
+                <Image src="/seguros.webp" alt="Seguros" width={400} height={100} unoptimized />
+              </div>
+            </div>
+
+            
           </div>
 
-          <div className="certifications-image">
+          <div className="representation-right">
             <Image
-              src="/section.png"
-              alt="Certificaciones"
-              width={400}
-              height={400}
+              src="/secondarysection.png"
+              alt="Secondary Section"
+              width={600}
+              height={600}
               unoptimized
-              className="section-image"
+              className="representation-image"
             />
           </div>
         </section>
@@ -264,7 +288,7 @@ export default function Home() {
                 className="accordion-summary" 
                 onClick={() => {
                   setOpenAccordion(openAccordion === 0 ? -1 : 0);
-                  setBenefitImage('/primer.svg');
+                  setBenefitImage('/gentamivina.svg');
                 }}
               >
                 <span>Medicamentos de nueva generación</span>
@@ -283,7 +307,7 @@ export default function Home() {
                 className="accordion-summary" 
                 onClick={() => {
                   setOpenAccordion(openAccordion === 1 ? -1 : 1);
-                  setBenefitImage('/Vector (5).svg');
+                  setBenefitImage('/valsartan.svg');
                 }}
               >
                 <span>Moléculas Combinadas</span>
@@ -302,7 +326,7 @@ export default function Home() {
                 className="accordion-summary" 
                 onClick={() => {
                   setOpenAccordion(openAccordion === 2 ? -1 : 2);
-                  setBenefitImage('/Vector (6).svg');
+                  setBenefitImage('/empaglifozina.svg');
                 }}
               >
                 <span>Kits Integrales de Cirugía</span>
@@ -321,7 +345,7 @@ export default function Home() {
                 className="accordion-summary" 
                 onClick={() => {
                   setOpenAccordion(openAccordion === 3 ? -1 : 3);
-                  setBenefitImage('/Vector (7).svg');
+                  setBenefitImage('/manito.svg');
                 }}
               >
                 <span>Farmacovigilancia de Origen</span>
@@ -368,9 +392,9 @@ export default function Home() {
                       unoptimized
                     />
                   </div>
-                  <h3 className="differential-card-title">Número 1</h3>
+                  <h3 className="differential-card-title">Portafolio certificado</h3>
                   <p className="differential-card-text">
-                    Portafolio fabricado por Laboratorios Aliados, certificados internacionalmente y registrados en Venezuela
+                    Nuestros productos están fabricados por Laboratorios certificados internacionalmente y registrados en Venezuela
                   </p>
                 </div>
               </div>
@@ -386,9 +410,9 @@ export default function Home() {
                       unoptimized
                     />
                   </div>
-                  <h3 className="differential-card-title">Número 2</h3>
+                  <h3 className="differential-card-title">Kit de medicina para procedimientos quirúrgicos</h3>
                   <p className="differential-card-text">
-                    Cobertura de ciclo completo del paciente hospitalizado para iniciar o tratamiento de enfermedades crónicas y agudas
+                   Contamos con todos los medicamentos necesarios para cualquier procedimiento quirúrgico que requiera anestesia
                   </p>
                 </div>
               </div>
@@ -404,9 +428,9 @@ export default function Home() {
                       unoptimized
                     />
                   </div>
-                  <h3 className="differential-card-title">Número 3</h3>
+                  <h3 className="differential-card-title">Embajadores de la salud</h3>
                   <p className="differential-card-text">
-                    Compromiso permanente al uso consciente de fármacos según el Bienestar del Paciente
+                   Fomentamos activamente el uso consciente de Fármacos para el Bienestar del Paciente
                   </p>
                 </div>
               </div>
@@ -758,60 +782,91 @@ export default function Home() {
         }
 
         .representation {
-          height: fit-content;
           background-color: var(--color-7);
           padding: 40px 20px;
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          transition: height 200ms ease, padding 200ms ease;
+          gap: 20px;
+          position: relative;
+          height: fit-content;
         }
 
-        .representation-header {
-          text-align: start;
-          position: relative;
-          z-index: 1;
-          padding: 20px 0; 
+        .representation-left {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          width: 100%;
+        }
+
+        .representation-logo-box {
+          display: flex;
+          flex-direction: row;
+          align-items:center;
+          gap: 12px;
+  
+        }
+
+        .representation-logo {
+          width: auto;
+          height: auto;
         }
 
         .representation-title {
-          font-size: 24px;
+          font-size: 20px;
           font-weight: 700;
-          color: var(--color-6);
-          margin: 0 0 15px 0;
-          line-height: 1;
-          font-family: var(--font-manrope);
-        }
-
-        .representation-description {
-          font-size: 14px;
-          color: var(--color-6);
-          line-height: 1.6;
+          color: var(--color-2);
           margin: 0;
           font-family: var(--font-manrope);
         }
 
-        .certifications-card {
-          background-color: #FDEAD2;
-          padding: 20px;
-          border-radius: 12px;
-          border: 1px solid var(--color-4);
+        .representation-boxes {
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          position: relative;
-          z-index: 1;
+          gap: 20px;
         }
 
-        .certifications-title {
-          font-size: 18px;
+        .info-box {
+          border: 1px solid var(--color-1);
+          border-radius: 8px;
+          padding: 4px;
+          background-color: white;
+        }
+
+        .info-box-title {
+          font-size: 16px;
+          font-weight: 700;
+          color: var(--color-6);
+          margin: 0 0 10px 0;
+          font-family: var(--font-manrope);
+        }
+
+        .info-box-text {
+          font-size: 13px;
+          color: var(--color-6);
+          line-height: 1.5;
+          margin: 0;
+          font-family: var(--font-manrope);
+        }
+
+        .certifications-box {
+          border: 1px solid var(--color-1);
+          border-radius: 8px;
+          padding: 20px;
+          background-color: white;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .certifications-box-title {
+          font-size: 16px;
           font-weight: 700;
           color: var(--color-6);
           margin: 0;
           font-family: var(--font-manrope);
         }
 
-        .certifications-subtitle {
+        .certifications-box-text {
           font-size: 12px;
           color: var(--color-6);
           line-height: 1.5;
@@ -819,23 +874,43 @@ export default function Home() {
           font-family: var(--font-manrope);
         }
 
-        .certifications-image {
+        .certifications-logos {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+          flex-wrap: wrap;
+          margin-top: 8px;
+        }
+
+        .certifications-logos img {
+          height: 30px;
+          width: auto;
+          object-fit: contain;
+        }
+
+        .seguros-image-box {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-top: 20px;
           width: 100%;
+          margin-top: 10px;
         }
 
-        .section-image {
+        .seguros-image {
           width: 100%;
-          max-width: 450px;
+          max-width: 400px;
           height: auto;
           object-fit: contain;
         }
 
-        .highlight {
-          color: var(--color-2);
+        .representation-right {
+          display: none;
+        }
+
+        .representation-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
 
         .staff-section {
@@ -935,7 +1010,7 @@ export default function Home() {
           height: 120px;
           background-size: cover;
           background-position: center;
-          border-radius: 24px;
+          border-radius: 4px;
           overflow: hidden;
         }
 
@@ -956,8 +1031,8 @@ export default function Home() {
         }
         
         .staff-button{
-             background-color: var(--color-4);
-          color: var(--color-6);
+             background-color: var(--color-1);
+          color: #fff;
           border: none;
           font-family: var(--font-manrope);
           padding: 12px 20px;
@@ -1132,8 +1207,8 @@ export default function Home() {
         }
 
         .accordion-button {
-          background-color: var(--color-4);
-          color: var(--color-6);
+          background-color: var(--color-1);
+          color: #fff;
           border: none;
           padding: 12px 20px;
           border-radius: 25px;
@@ -1199,7 +1274,7 @@ export default function Home() {
         }
 
         .differential-card {
-          border-radius: 24px;
+          border-radius: 4px;
           padding: 24px;
           height: 220px;
           display: flex;
@@ -1209,28 +1284,16 @@ export default function Home() {
           margin-top: 30px;
         }
 
-        .differential-card-1 {
-          background: linear-gradient(135deg, #F7B668 0%, #FDD5A0 100%);
-        }
-
-        .differential-card-1 .differential-icon {
-          background-color: #A05C1F;
-        }
-
-        .differential-card-2 {
-          background: linear-gradient(135deg, #B9DFED 0%, #D4EBF5 100%);
-        }
-
-        .differential-card-2 .differential-icon {
-          background-color: #457f94;
-        }
-
+        .differential-card-1,
+        .differential-card-2,
         .differential-card-3 {
-          background: linear-gradient(135deg, #809ED2 0%, #A8BFE0 100%);
+          background: linear-gradient(135deg, #809ed2 0%, #94b3e8 100%);
         }
 
+        .differential-card-1 .differential-icon,
+        .differential-card-2 .differential-icon,
         .differential-card-3 .differential-icon {
-          background-color: #293364;
+          background-color: var(--color-1);
         }
 
         .differential-icon {
@@ -1542,8 +1605,8 @@ export default function Home() {
 
           .header-button {
             display: block;
-            background-color: var(--color-4);
-            color: var(--color-6);
+            background-color: var(--color-1);
+            color: #fff;
             border: none;
             padding: 12px 24px;
             border-radius: 25px;
@@ -1605,45 +1668,52 @@ export default function Home() {
 
           .representation {
             padding: 60px 40px;
-            gap: 24px;
             flex-direction: row;
-            align-items: stretch;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-            position: relative;
-            background-image: url('/fondoarriba.png');
-            background-position: top 0 right 0;
-            background-repeat: no-repeat;
-            background-size: 800px auto;
+            gap: 40px;
+            overflow: visible;
           }
 
-          .representation-content {
-            max-width: 50%;
-            flex: 0 0 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            gap: 24px;
+          .representation-left {
+            flex: 1;
+            max-width: 600px;
           }
 
-          .representation-header {
-            width: 100%;
+          .representation-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
           }
 
           .representation-title {
-            font-size: 32px;
-          }
-
-          .representation-description {
-            font-size: 16px;
-          }
-
-          .certifications-card {
-            width: 100%;
-          }
-
-          .certifications-title {
             font-size: 24px;
+          }
+
+          .info-box-title {
+            font-size: 14px;
+          }
+
+          .info-box-text {
+            font-size: 12px;
+          }
+
+          .certifications-box-title {
+            font-size: 14px;
+          }
+
+          .certifications-box-text {
+            font-size: 11px;
+          }
+
+          .seguros-image-box {
+            margin-top: 20px;
+          }
+
+          .seguros-image {
+            max-width: 100%;
+          }
+
+          .representation-right {
+            display: none;
           }
 
           .certifications-subtitle {
@@ -1939,9 +2009,9 @@ export default function Home() {
           .differential-card {
             height: 280px;
             padding: 28px;
-            align-items: center;
+           
             justify-content:center;
-            text-align: center;
+            text-align: start;
           }
 
 
@@ -2075,7 +2145,70 @@ export default function Home() {
           }
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 1024px) and (max-width: 1199px) {
+          .representation {
+            padding: 80px 0 180px 60px;
+            gap: 0;
+            position: relative;
+          }
+
+          .representation-left {
+            max-width: 50%;
+            padding-right: 40px;
+          }
+
+          .representation-title {
+            font-size: 28px;
+          }
+
+          .info-box {
+            padding:12px;
+          }
+
+          .info-box-title {
+            font-size: 16px;
+          }
+
+          .info-box-text {
+            font-size: 13px;
+          }
+
+          .certifications-box {
+            padding: 12px;
+          }
+
+          .certifications-box-title {
+            font-size: 16px;
+          }
+
+          .certifications-box-text {
+            font-size: 12px;
+          }
+
+          .certifications-logos img {
+            height: 35px;
+          }
+
+          .seguros-image-box {
+            display: none;
+          }
+
+          .representation-right {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            overflow: hidden;
+          }
+
+          .representation-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center;
+          }
+
           .footer {
             padding: 60px 40px;
             overflow: visible;
@@ -2093,6 +2226,123 @@ export default function Home() {
             top: auto;
             transform: scaleX(-1) translateY(-50px) scaleY(1.1);
             z-index: 2;
+          }
+        }
+
+        @media (max-width: 1199px) {
+          .representation {
+            padding: 60px 40px;
+            flex-direction: column;
+            gap: 20px;
+          }
+
+          .representation-left {
+            max-width: 100%;
+            padding-right: 0;
+          }
+
+          .representation-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+          }
+
+          .representation-right {
+            display: none;
+          }
+
+          .seguros-image-box {
+            display: flex;
+          }
+        }
+
+        @media (min-width: 1200px) {
+          .representation {
+            padding: 80px 0 180px 60px;
+            gap: 0;
+            position: relative;
+          }
+
+          .representation-left {
+            max-width: 50%;
+            padding-right: 40px;
+          }
+
+          .representation-title {
+            font-size: 28px;
+          }
+
+          .info-box {
+            padding:12px;
+          }
+
+          .info-box-title {
+            font-size: 16px;
+          }
+
+          .info-box-text {
+            font-size: 13px;
+          }
+
+          .certifications-box {
+            padding: 12px;
+          }
+
+          .certifications-box-title {
+            font-size: 16px;
+          }
+
+          .certifications-box-text {
+            font-size: 12px;
+          }
+
+          .certifications-logos img {
+            height: 35px;
+          }
+
+          .seguros-image-box {
+            display: none;
+          }
+
+          .representation-right {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            overflow: hidden;
+          }
+
+          .representation-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: left center;
+          }
+
+          .footer {
+            padding: 60px 40px;
+            overflow: visible;
+          }
+
+          .footer::before {
+            width: 110vh;
+            max-width: 600px;
+            opacity: 1;
+            background-size: contain;
+            background-position: right center;
+            right: -80;
+            left: auto;
+            bottom: -28;
+            top: auto;
+            transform: scaleX(-1) translateY(-50px) scaleY(1.1);
+            z-index: 2;
+          }
+        }
+
+        @media (min-width: 1400px) {
+          .representation-image {
+            width: 120%;
           }
         }
       `}</style>
