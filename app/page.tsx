@@ -134,7 +134,7 @@ export default function Home() {
             <div className="countdown-content">
               <p className="countdown-label">Faltan</p>
               <h1 className="countdown-days">{daysRemaining} DÍAS</h1>
-              <p className="countdown-subtitle">Para nuestro lanzamiento</p>
+              <p className="countdown-subtitle">Para que cada centro de salud a nivel nacional cuente con medicinas de nueva generación y calidad certificada en un solo proveedor.</p>
             </div>
           </section>
         ) : (
@@ -692,6 +692,7 @@ export default function Home() {
           font-size: 18px;
           font-weight: 400;
           color: white;
+          width: 70vw;
           margin: 0;
           font-family: var(--font-manrope);
           letter-spacing: 1px;
