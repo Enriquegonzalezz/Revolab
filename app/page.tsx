@@ -20,6 +20,9 @@ export default function Home() {
   // Estado para controlar qué acordeón está abierto
   const [openAccordion, setOpenAccordion] = useState(0);
 
+  // Estado para controlar el width de la imagen de certificaciones
+  const [certImageWidth, setCertImageWidth] = useState(400);
+
   // Función para scroll suave a secciones
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -104,6 +107,45 @@ export default function Home() {
     }, msUntilMidnight);
 
     return () => clearTimeout(midnightTimeout);
+  }, []);
+
+  // Control de visibilidad de imágenes según viewport
+  useEffect(() => {
+    const handleRepresentationImages = () => {
+      const primaryImage = document.querySelector('.primary-image') as HTMLElement | null;
+      const secondaryImage = document.querySelector('.secondary-image') as HTMLElement | null;
+      
+      if (primaryImage && secondaryImage) {
+        if (window.innerWidth >= 1600) {
+          primaryImage.style.display = 'block';
+          secondaryImage.style.display = 'none';
+        } else {
+          primaryImage.style.display = 'none';
+          secondaryImage.style.display = 'block';
+        }
+      }
+    };
+
+    handleRepresentationImages();
+    window.addEventListener('resize', handleRepresentationImages);
+    
+    return () => window.removeEventListener('resize', handleRepresentationImages);
+  }, []);
+
+  // Control de width de imagen de certificaciones según viewport
+  useEffect(() => {
+    const handleCertificationsImageWidth = () => {
+      if (window.innerWidth < 400) {
+        setCertImageWidth(280);
+      } else {
+        setCertImageWidth(400);
+      }
+    };
+
+    handleCertificationsImageWidth();
+    window.addEventListener('resize', handleCertificationsImageWidth);
+    
+    return () => window.removeEventListener('resize', handleCertificationsImageWidth);
   }, []);
 
   return (
@@ -203,7 +245,7 @@ export default function Home() {
                 Nuestro portafolio de Productos y Dispositivos Médicos está registrado y autorizado en Venezuela, y han sido fabricados en laboratorios certificados en las mejores prácticas, por Europa y USA, con certificación sanitaria EMA y USFDA.
               </p>
               <div className="certifications-logos">
-                <Image src="/seguros.webp" alt="Seguros" width={400} height={100} unoptimized />
+                <Image src="/Group 23.svg" alt="Seguros" width={400} height={80} unoptimized />
               </div>
             </div>
 
@@ -217,7 +259,15 @@ export default function Home() {
               width={600}
               height={600}
               unoptimized
-              className="representation-image"
+              className="representation-image secondary-image"
+            />
+            <Image
+              src="/Group 47.png"
+              alt="Group 47"
+              width={600}
+              height={600}
+              unoptimized
+              className="representation-image primary-image"
             />
           </div>
         </section>
@@ -489,8 +539,8 @@ export default function Home() {
                   <Image
                     src="/aliado4.webp"
                     alt="Aliado 4"
-                    width={100}
-                    height={100}
+                    width={120}
+                    height={140}
                     unoptimized
                     className="allies-image"
                   />
@@ -516,7 +566,20 @@ export default function Home() {
                     src="/aliado6.png"
                     alt="Aliado 6"
                     width={120}
-                    height={80}
+                    height={60}
+                    unoptimized
+                    className="allies-image"
+                  />
+                </div>
+              </div>
+
+              <div className="allies-slide">
+                <div className="allies-card">
+                  <Image
+                    src="/aliado7.png"
+                    alt="Aliado 7"
+                    width={100}
+                    height={40}
                     unoptimized
                     className="allies-image"
                   />
@@ -829,7 +892,7 @@ export default function Home() {
         .info-box {
           border: 1px solid var(--color-1);
           border-radius: 8px;
-          padding: 4px;
+          padding: 8px;
           background-color: white;
         }
 
@@ -881,11 +944,13 @@ export default function Home() {
           align-items: center;
           flex-wrap: wrap;
           margin-top: 8px;
+          width: 100%;
+          max-width: 500px;
         }
 
         .certifications-logos img {
-          height: 30px;
-          width: auto;
+          height: auto;
+          width: 100%;
           object-fit: contain;
         }
 
@@ -2346,6 +2411,15 @@ export default function Home() {
             width: 120%;
           }
         }
+
+        @media (min-width: 1600px) {
+          .representation {
+            max-width: 1600px;
+            margin: 20px auto;
+            
+          }
+        }
+
       `}</style>
     </>
   );
