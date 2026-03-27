@@ -950,6 +950,7 @@ export default function Home() {
           margin-top: 8px;
           width: 100%;
           max-width: 500px;
+          transform: scale(1.2)
         }
 
         .certifications-logos img {
