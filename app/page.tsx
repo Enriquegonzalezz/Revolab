@@ -272,62 +272,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="staff-section">
-          <div className="staff-header">
-            <h2 className="staff-title">Staff de Profesional</h2>
-            <p className="staff-description">
-              Con experiencia en la industria Farmacéutica, Procesos Comerciales Financieros y Logísticos, así como de soporte científico de la Dirección Médica y Asuntos Regulatorios conforman nuestros equipos
-            </p>
-          </div>
-        </section>
-
-        <div className="staff-carousel-section">
-          <div className="carousel-wrapper">
-            <div className="carousel-container">
-              <div className="carousel">
-                <div className="carousel-slide">
-                  <div className="slide-card">
-                    <div className="slide-image" style={{backgroundImage: 'url(/Direccionmedica.webp)'}}></div>
-                    <h3 className="slide-title">Dirección médica</h3>
-                  </div>
-                </div>
-
-                <div className="carousel-slide">
-                  <div className="slide-card">
-                    <div className="slide-image" style={{backgroundImage: 'url(/Asuntos%20regulatorios.png)'}}></div>
-                    <h3 className="slide-title">Asuntos regulatorios</h3>
-                  </div>
-                </div>
-
-                <div className="carousel-slide">
-                  <div className="slide-card">
-                    <div className="slide-image" style={{backgroundImage: 'url(/finanzas.webp)'}}></div>
-                    <h3 className="slide-title">Finanzas</h3>
-                  </div>
-                </div>
-
-                <div className="carousel-slide">
-                  <div className="slide-card">
-                    <div className="slide-image" style={{backgroundImage: 'url(/comercial.webp)'}}></div>
-                    <h3 className="slide-title">Comercial</h3>
-                  </div>
-                </div>
-
-                <div className="carousel-slide">
-                  <div className="slide-card">
-                    <div className="slide-image" style={{backgroundImage: 'url(/cadena.webp)'}}></div>
-                    <h3 className="slide-title">Cadena de distribución</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="staff-button-container">
-              <button className="staff-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Saber más</button>
-            </div>
-        </div>
-
-        <section id="beneficios" className="benefits-section" style={{ backgroundSize: benefitsBgSize } as React.CSSProperties}>
+           <section id="beneficios" className="benefits-section" style={{ backgroundSize: benefitsBgSize } as React.CSSProperties}>
           <h2 className="benefits-title">Beneficios</h2>
           <p className="benefits-subtitle">Nuestra propuesta de valor se basa en cuatro pilares estratégicos</p>
 
@@ -424,6 +369,9 @@ export default function Home() {
           </div>
         </section>
 
+
+        
+     
         <section id="diferenciales" className="differential-section">
           <h2 className="differential-title">Diferencial</h2>
         </section>
@@ -588,6 +536,62 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <section className="staff-section">
+          <div className="staff-header">
+            <h2 className="staff-title">Staff de Profesional</h2>
+            <p className="staff-description">
+              Con experiencia en la industria Farmacéutica, Procesos Comerciales Financieros y Logísticos, así como de soporte científico de la Dirección Médica y Asuntos Regulatorios conforman nuestros equipos
+            </p>
+          </div>
+        </section>
+
+        <div className="staff-carousel-section">  
+          <div className="carousel-wrapper">
+            <div className="carousel-container">
+              <div className="carousel">
+                <div className="carousel-slide">
+                  <div className="slide-card">
+                    <div className="slide-image" style={{backgroundImage: 'url(/Direccionmedica.webp)'}}></div>
+                    <h3 className="slide-title">Dirección médica</h3>
+                  </div>
+                </div>
+
+                <div className="carousel-slide">
+                  <div className="slide-card">
+                    <div className="slide-image" style={{backgroundImage: 'url(/Asuntos%20regulatorios.png)'}}></div>
+                    <h3 className="slide-title">Asuntos regulatorios</h3>
+                  </div>
+                </div>
+
+                <div className="carousel-slide">
+                  <div className="slide-card">
+                    <div className="slide-image" style={{backgroundImage: 'url(/finanzas.webp)'}}></div>
+                    <h3 className="slide-title">Finanzas</h3>
+                  </div>
+                </div>
+
+                <div className="carousel-slide">
+                  <div className="slide-card">
+                    <div className="slide-image" style={{backgroundImage: 'url(/comercial.webp)'}}></div>
+                    <h3 className="slide-title">Comercial</h3>
+                  </div>
+                </div>
+
+                <div className="carousel-slide">
+                  <div className="slide-card">
+                    <div className="slide-image" style={{backgroundImage: 'url(/cadena.webp)'}}></div>
+                    <h3 className="slide-title">Cadena de distribución</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="staff-button-container">
+              <button className="staff-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Saber más</button>
+            </div>
+        </div>
+
 
         <footer className="footer">
           <div className="footer-content">
@@ -846,7 +850,7 @@ export default function Home() {
         }
 
         .representation {
-          background-color: var(--color-7);
+          background-color: #fff;
           padding: 40px 20px;
           display: flex;
           flex-direction: column;
@@ -905,7 +909,7 @@ export default function Home() {
         }
 
         .info-box-text {
-          font-size: 13px;
+          font-size: 14px;
           color: var(--color-6);
           line-height: 1.5;
           margin: 0;
@@ -923,7 +927,7 @@ export default function Home() {
         }
 
         .certifications-box-title {
-          font-size: 16px;
+          font-size: 20px;
           font-weight: 700;
           color: var(--color-6);
           margin: 0;
@@ -980,7 +984,7 @@ export default function Home() {
         }
 
         .staff-section {
-          background-color: var(--color-7);
+          background-color: #Fff;
           padding: 20px 20px 0px 20px;
           display: flex;
           flex-direction: column;
@@ -1011,7 +1015,7 @@ export default function Home() {
         .staff-carousel-section {
           width: 100vw;
           margin-left: calc(-50vw + 50%);
-          background: linear-gradient(180deg, #F9F9F9 0%, #F9F9F9 30%, #EEF0F2 30%, #EEF0F2 100%);
+          background: linear-gradient(180deg, #Fff 0%, #Fff 30%, #EEF0F2 30%, #EEF0F2 100%);
           padding: 0;
           position: relative;
         }
@@ -1376,7 +1380,7 @@ export default function Home() {
         }
 
         .differential-card-title {
-          font-size: 18px;
+          font-size: 15px;
           font-weight: 700;
           color: var(--color-6);
           margin: 20px 0 0 0;
@@ -1392,7 +1396,7 @@ export default function Home() {
         }
 
         .allies-section {
-          background-color: var(--color-8);
+          background-color: #fff;
           padding: 60px 20px 10px 20px;
         }
 
@@ -1408,7 +1412,7 @@ export default function Home() {
         .allies-carousel-wrapper {
           width: 100vw;
           margin-left: calc(-50vw + 50%);
-          background-color: var(--color-8);
+          background-color: #fff;
           padding: 20px 0 60px 0;
           
         }
@@ -2236,7 +2240,7 @@ export default function Home() {
           }
 
           .info-box-text {
-            font-size: 13px;
+            font-size: 14px;
           }
 
           .certifications-box {
@@ -2418,6 +2422,26 @@ export default function Home() {
             margin: 20px auto;
             
           }
+        }
+
+        @media (max-width: 767px) {
+          .representation-logo-box{
+            flex-direction:column;
+          }
+
+          .representation-boxes{
+            grid-template-columns: 1fr;
+          }
+
+          .info-box{
+            padding: 20px;
+          }
+
+          .representation {
+            padding: 60px 40px 0px 40px;
+          }
+
+          
         }
 
       `}</style>
