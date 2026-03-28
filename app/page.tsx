@@ -23,6 +23,28 @@ export default function Home() {
   // Estado para controlar el width de la imagen de certificaciones
   const [certImageWidth, setCertImageWidth] = useState(400);
 
+  // Función para cambiar acordeón de forma suave
+  const handleAccordionChange = (newIndex: number, newImage: string) => {
+    if (openAccordion === newIndex) {
+      // Si el mismo acordeón está abierto, cerrarlo
+      setOpenAccordion(-1);
+    } else {
+      // Si hay otro abierto, cerrarlo primero
+      if (openAccordion !== -1) {
+        setOpenAccordion(-1);
+        // Esperar a que se cierre antes de abrir el nuevo
+        setTimeout(() => {
+          setOpenAccordion(newIndex);
+          setBenefitImage(newImage);
+        }, 350);
+      } else {
+        // Si no hay ninguno abierto, abrir directamente
+        setOpenAccordion(newIndex);
+        setBenefitImage(newImage);
+      }
+    }
+  };
+
   // Función para scroll suave a secciones
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -146,6 +168,85 @@ export default function Home() {
     window.addEventListener('resize', handleCertificationsImageWidth);
     
     return () => window.removeEventListener('resize', handleCertificationsImageWidth);
+  }, []);
+
+  // Script para detectar elementos que causan scroll vertical adicional
+  useEffect(() => {
+    const detectOverflowElements = () => {
+      const viewportHeight = window.innerHeight;
+      const scrollHeight = document.documentElement.scrollHeight;
+      
+      if (scrollHeight > viewportHeight) {
+        console.log(`🔍 Altura total: ${scrollHeight}px, Altura viewport: ${viewportHeight}px`);
+        console.log(`📏 Exceso de altura: ${scrollHeight - viewportHeight}px`);
+        
+        // Analizar elementos principales
+        const mainElements = document.querySelectorAll('section, div, header, footer');
+        mainElements.forEach((element, index) => {
+          const rect = element.getBoundingClientRect();
+          const computedStyle = window.getComputedStyle(element);
+          const htmlElement = element as HTMLElement;
+          
+          // Elementos que exceden el viewport
+          if (rect.bottom > viewportHeight) {
+            console.log(`🚨 Elemento ${index}:`, {
+              tagName: element.tagName,
+              className: element.className,
+              id: element.id,
+              height: htmlElement.offsetHeight,
+              bottom: rect.bottom,
+              overflow: computedStyle.overflow,
+              overflowY: computedStyle.overflowY,
+              position: computedStyle.position,
+              marginBottom: computedStyle.marginBottom,
+              paddingBottom: computedStyle.paddingBottom
+            });
+          }
+        });
+        
+        // Analizar contenedor principal
+        const container = document.querySelector('.container') as HTMLElement;
+        if (container) {
+          const containerHeight = container.offsetHeight;
+          const containerStyle = window.getComputedStyle(container);
+          console.log(`📦 Contenedor principal:`, {
+            height: containerHeight,
+            overflow: containerStyle.overflow,
+            overflowY: containerStyle.overflowY,
+            minHeight: containerStyle.minHeight
+          });
+        }
+        
+        // Analizar elementos con position absolute/fixed
+        const positionedElements = document.querySelectorAll('[style*="position: absolute"], [style*="position: fixed"]');
+        positionedElements.forEach((element, index) => {
+          const rect = element.getBoundingClientRect();
+          const htmlElement = element as HTMLElement;
+          if (rect.bottom > viewportHeight || rect.top < 0) {
+            console.log(`📍 Elemento posicionado ${index}:`, {
+              tagName: element.tagName,
+              className: element.className,
+              position: window.getComputedStyle(element).position,
+              top: rect.top,
+              bottom: rect.bottom,
+              height: htmlElement.offsetHeight
+            });
+          }
+        });
+      }
+    };
+
+    // Ejecutar después de que la página cargue completamente
+    setTimeout(detectOverflowElements, 1000);
+    
+    // También ejecutar al redimensionar
+    const handleResize = () => {
+      setTimeout(detectOverflowElements, 100);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -281,10 +382,7 @@ export default function Home() {
             <div className={`accordion-item ${openAccordion === 0 ? 'open' : ''}`}>
               <div 
                 className="accordion-summary" 
-                onClick={() => {
-                  setOpenAccordion(openAccordion === 0 ? -1 : 0);
-                  setBenefitImage('/gentamivina.svg');
-                }}
+                onClick={() => handleAccordionChange(0, '/gentamivina.svg')}
               >
                 <span>Medicamentos de nueva generación</span>
                 <img src="/arrow_forward_ios.svg" alt="Flecha" className="accordion-icon" />
@@ -300,17 +398,14 @@ export default function Home() {
             <div className={`accordion-item ${openAccordion === 1 ? 'open' : ''}`}>
               <div 
                 className="accordion-summary" 
-                onClick={() => {
-                  setOpenAccordion(openAccordion === 1 ? -1 : 1);
-                  setBenefitImage('/valsartan.svg');
-                }}
+                onClick={() => handleAccordionChange(1, '/valsartan.svg')}
               >
                 <span>Moléculas Combinadas</span>
                 <img src="/arrow_forward_ios.svg" alt="Flecha" className="accordion-icon" />
               </div>
               <div className="accordion-content">
                 <div className="accordion-content-inner">
-                  <p>Al disponer en el portafolio de Medicamentos con Moléculas Combinadas, estamos ofreciendo soluciones reales para tratar con una misma dosificación patologías distintas o relacionada. Medicamentos de este tipo, permiten enlazar categoría anatómica-terapéutica-química, logrando tratamientos mas efectivos que resuelven hasta la afección subyacente de las patologías.</p>
+                  <p>Al disponer en el portafolio de Medicamentos con Moléculas Combinadas, estamos ofreciendo soluciones reales para tratar con una misma dosificación patologías distintas o relacionada. Esto logra tratamientos mas efectivos que resuelven hasta la afección subyacente de las patologías.</p>
                   <button className="accordion-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Saber más</button>
                 </div>
               </div>
@@ -319,10 +414,7 @@ export default function Home() {
             <div className={`accordion-item ${openAccordion === 2 ? 'open' : ''}`}>
               <div 
                 className="accordion-summary" 
-                onClick={() => {
-                  setOpenAccordion(openAccordion === 2 ? -1 : 2);
-                  setBenefitImage('/empaglifozina.svg');
-                }}
+                onClick={() => handleAccordionChange(2, '/empaglifozina.svg')}
               >
                 <span>Kits Integrales de Cirugía</span>
                 <img src="/arrow_forward_ios.svg" alt="Flecha" className="accordion-icon" />
@@ -338,10 +430,7 @@ export default function Home() {
             <div className={`accordion-item ${openAccordion === 3 ? 'open' : ''}`}>
               <div 
                 className="accordion-summary" 
-                onClick={() => {
-                  setOpenAccordion(openAccordion === 3 ? -1 : 3);
-                  setBenefitImage('/manito.svg');
-                }}
+                onClick={() => handleAccordionChange(3, '/manito.svg')}
               >
                 <span>Farmacovigilancia de Origen</span>
                 <img src="/arrow_forward_ios.svg" alt="Flecha" className="accordion-icon" />
@@ -373,7 +462,7 @@ export default function Home() {
         
      
         <section id="diferenciales" className="differential-section">
-          <h2 className="differential-title">Diferencial</h2>
+          <h2 className="differential-title">Diferenciadores</h2>
         </section>
 
         <div className="differential-carousel-wrapper">
@@ -426,7 +515,7 @@ export default function Home() {
                       unoptimized
                     />
                   </div>
-                  <h3 className="differential-card-title">Embajadores de la salud</h3>
+                  <h3 className="differential-card-title">Salud con criterio médico</h3>
                   <p className="differential-card-text">
                    Fomentamos activamente el uso consciente de Fármacos para el Bienestar del Paciente
                   </p>
@@ -1145,6 +1234,24 @@ export default function Home() {
           text-align: center;
         }
 
+         .benefits-section {
+          background-color: white;
+          padding: 60px 20px ;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          scroll-behavior: smooth;
+          overflow: hidden;
+        }
+
+        .benefits-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          will-change: auto;
+          overflow: hidden;
+        }
+
         .benefits-subtitle {
           font-size: 14px;
           color: var(--color-6);
@@ -1251,7 +1358,7 @@ export default function Home() {
         }
 
         .accordion-item.open .accordion-content {
-          max-height: 300px;
+          max-height: 400px;
           opacity: 1;
         }
 
@@ -1313,7 +1420,7 @@ export default function Home() {
           width: 100vw;
           margin-left: calc(-50vw + 50%);
           background-color: white;
-          padding: 10px 0 60px 0;
+          padding: 10px 0 00px 0;
         }
 
         .differential-carousel-container {
@@ -2045,7 +2152,7 @@ export default function Home() {
           }
 
           .accordion-content {
-            padding: 0 24px 24px 24px;
+            padding: 0 24px 0 24px;
           }
 
           .accordion-content p {
@@ -2061,7 +2168,7 @@ export default function Home() {
           }
 
           .differential-carousel-wrapper {
-            padding: 20px 0 80px 0;
+            padding: 20px 0 00px 0;
           }
 
           .differential-carousel {
