@@ -9,6 +9,7 @@
   --color-6: #0C0E0D;
   --color-7: #F9F9F9;
   --color-8: #EEF0F2;
+  overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: dark) {

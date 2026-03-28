@@ -170,83 +170,26 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleCertificationsImageWidth);
   }, []);
 
-  // Script para detectar elementos que causan scroll vertical adicional
+  // Script para detectar y corregir problemas de scroll
   useEffect(() => {
-    const detectOverflowElements = () => {
-      const viewportHeight = window.innerHeight;
-      const scrollHeight = document.documentElement.scrollHeight;
-      
-      if (scrollHeight > viewportHeight) {
-        console.log(`🔍 Altura total: ${scrollHeight}px, Altura viewport: ${viewportHeight}px`);
-        console.log(`📏 Exceso de altura: ${scrollHeight - viewportHeight}px`);
-        
-        // Analizar elementos principales
-        const mainElements = document.querySelectorAll('section, div, header, footer');
-        mainElements.forEach((element, index) => {
-          const rect = element.getBoundingClientRect();
-          const computedStyle = window.getComputedStyle(element);
-          const htmlElement = element as HTMLElement;
-          
-          // Elementos que exceden el viewport
-          if (rect.bottom > viewportHeight) {
-            console.log(`🚨 Elemento ${index}:`, {
-              tagName: element.tagName,
-              className: element.className,
-              id: element.id,
-              height: htmlElement.offsetHeight,
-              bottom: rect.bottom,
-              overflow: computedStyle.overflow,
-              overflowY: computedStyle.overflowY,
-              position: computedStyle.position,
-              marginBottom: computedStyle.marginBottom,
-              paddingBottom: computedStyle.paddingBottom
-            });
-          }
-        });
-        
-        // Analizar contenedor principal
-        const container = document.querySelector('.container') as HTMLElement;
-        if (container) {
-          const containerHeight = container.offsetHeight;
-          const containerStyle = window.getComputedStyle(container);
-          console.log(`📦 Contenedor principal:`, {
-            height: containerHeight,
-            overflow: containerStyle.overflow,
-            overflowY: containerStyle.overflowY,
-            minHeight: containerStyle.minHeight
-          });
-        }
-        
-        // Analizar elementos con position absolute/fixed
-        const positionedElements = document.querySelectorAll('[style*="position: absolute"], [style*="position: fixed"]');
-        positionedElements.forEach((element, index) => {
-          const rect = element.getBoundingClientRect();
-          const htmlElement = element as HTMLElement;
-          if (rect.bottom > viewportHeight || rect.top < 0) {
-            console.log(`📍 Elemento posicionado ${index}:`, {
-              tagName: element.tagName,
-              className: element.className,
-              position: window.getComputedStyle(element).position,
-              top: rect.top,
-              bottom: rect.bottom,
-              height: htmlElement.offsetHeight
-            });
-          }
-        });
+    const fixScrollIssues = () => {
+      const container = document.querySelector('.container') as HTMLElement;
+      if (container) {
+        container.style.overflowY = 'hidden';
       }
+      
+      // Ocultar scripts posicionados
+      const scripts = document.querySelectorAll('script[style*="position: absolute"]');
+      scripts.forEach((script, index) => {
+        const htmlScript = script as HTMLElement;
+        htmlScript.style.display = 'none';
+      });
     };
 
     // Ejecutar después de que la página cargue completamente
-    setTimeout(detectOverflowElements, 1000);
+    setTimeout(fixScrollIssues, 1000);
     
-    // También ejecutar al redimensionar
-    const handleResize = () => {
-      setTimeout(detectOverflowElements, 100);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {};
   }, []);
 
   return (
@@ -758,6 +701,8 @@ export default function Home() {
           min-height: 100dvh;
           display: flex;
           flex-direction: column;
+          overflow-y: hidden;
+          overflow-x: hidden;
         }
 
         .header {
@@ -1250,6 +1195,7 @@ export default function Home() {
           gap: 20px;
           will-change: auto;
           overflow: hidden;
+          overflow-x: hidden;
         }
 
         .benefits-subtitle {
@@ -1577,6 +1523,7 @@ export default function Home() {
           color: white;
           position: relative;
           overflow: visible;
+          overflow-x: hidden;
         }
 
         .footer::before {
@@ -2122,6 +2069,7 @@ export default function Home() {
 
             .footer {
               overflow: visible;
+              overflow-x: hidden;
             }
 
             .footer::before {
