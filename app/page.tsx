@@ -271,14 +271,15 @@ export default function Home() {
               <div className="info-box">
                 <h3 className="info-box-title">Visión</h3>
                 <p className="info-box-text">
-                  Convertirnos en la empresa farmacéutica líder en la distribución de la próxima generación de medicamentos de alta especialidad.
+                  CConvertirnos en la empresa farmaceutica lider en la reduccion de la progresión de enfermedades crónicas.
+
                 </p>
               </div>
 
               <div className="info-box">
                 <h3 className="info-box-title">Misión</h3>
                 <p className="info-box-text">
-                  Acelerar la adopción y el acceso a moléculas más eficaces para los pacientes y profesionales de la salud.
+                 Acelerar la adopcion y el acceso a moleculas mas eficaces para pacientes, proveedores y sistemas de salud.
                 </p>
               </div>
             </div>
