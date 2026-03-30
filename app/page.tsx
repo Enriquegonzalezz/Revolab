@@ -271,7 +271,7 @@ export default function Home() {
               <div className="info-box">
                 <h3 className="info-box-title">Visión</h3>
                 <p className="info-box-text">
-                  CConvertirnos en la empresa farmaceutica lider en la reduccion de la progresión de enfermedades crónicas.
+                  Convertirnos en la empresa farmaceutica lider en la reduccion de la progresión de enfermedades crónicas.
 
                 </p>
               </div>
