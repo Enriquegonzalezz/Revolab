@@ -287,7 +287,7 @@ export default function Home() {
             <div className="certifications-box">
               <h3 className="certifications-box-title">Certificaciones</h3>
               <p className="certifications-box-text">
-                Nuestro portafolio de Productos y Dispositivos Médicos está registrado y autorizado en Venezuela, y han sido fabricados en laboratorios certificados en las mejores prácticas, por Europa y USA, con certificación sanitaria EMA y USFDA.
+               Nuestros Productos y Dispositivos Médicos están registrados y autorizados en Venezuela por el Instituto Nacional de Higiene Rafael Rangel. Adicionalmente, han sido fabricados en laboratorios con certificados en buenas prácticas de manufactura, por Europa y USA. Nuestros fabricantes han registrado productos ante EMA y USFDA.
               </p>
               <div className="certifications-logos">
                 <Image src="/Group 23.svg" alt="Seguros" width={400} height={80} unoptimized />
@@ -333,7 +333,7 @@ export default function Home() {
               </div>
               <div className="accordion-content">
                 <div className="accordion-content-inner">
-                  <p>Con la oferta del portafolio de Medicamentos de nueva generación, se tratan de moléculas relacionadas con terapias genéticas, ya que no solo es tratar de aliviar síntomas, sino de resolver mecanismos subyacentes de que originan y progresan patologías.</p>
+                  <p>El concepto de medicamentos de nueva generación se refiere a fármacos desarrollados mediante biotecnología avanzada, ingeniería genética o procesos químicos de alta precisión que ofrecen mecanismos de acción más específicos y eficaces que los tratamientos convencionales.</p>
                   <button className="accordion-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Saber más</button>
                 </div>
               </div>
