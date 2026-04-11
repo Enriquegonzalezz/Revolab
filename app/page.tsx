@@ -9,8 +9,8 @@ export default function Home() {
   const [maletaSize, setMaletaSize] = useState({ width: 400, height: 300 });
   
   // Cuenta regresiva - Configura aquí los días iniciales
-  const INITIAL_DAYS = 124;
-  const LAUNCH_DATE = new Date('2026-07-10'); // Fecha de lanzamiento
+  const INITIAL_DAYS = 119;
+  const LAUNCH_DATE = new Date('2026-08-08'); // Fecha de lanzamiento
   
   const [daysRemaining, setDaysRemaining] = useState(INITIAL_DAYS);
   
