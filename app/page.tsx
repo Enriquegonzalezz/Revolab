@@ -334,6 +334,11 @@ export default function Home() {
               <div className="accordion-content">
                 <div className="accordion-content-inner">
                   <p>El concepto de medicamentos de nueva generación se refiere a fármacos desarrollados mediante biotecnología avanzada, ingeniería genética o procesos químicos de alta precisión que ofrecen mecanismos de acción más específicos y eficaces que los tratamientos convencionales.</p>
+                  <img
+                    src="/b37a6abf4db67bce8ce93a284211339861cb72c4.jpg"
+                    alt="Medicamentos de nueva generación"
+                    className="accordion-mobile-image accordion-mobile-image--zoom"
+                  />
                   <button className="accordion-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Saber más</button>
                 </div>
               </div>
@@ -350,6 +355,11 @@ export default function Home() {
               <div className="accordion-content">
                 <div className="accordion-content-inner">
                   <p>Al disponer en el portafolio de Medicamentos con Moléculas Combinadas, estamos ofreciendo soluciones reales para tratar con una misma dosificación patologías distintas o relacionada. Esto logra tratamientos mas efectivos que resuelven hasta la afección subyacente de las patologías.</p>
+                  <img
+                    src="/1fcecabe4a3ab346a515bcfd69da8fb70d446a14.jpg"
+                    alt="Moléculas combinadas"
+                    className="accordion-mobile-image accordion-mobile-image--zoom"
+                  />
                   <button className="accordion-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Saber más</button>
                 </div>
               </div>
@@ -366,6 +376,11 @@ export default function Home() {
               <div className="accordion-content">
                 <div className="accordion-content-inner">
                   <p>Suministramos Kits Integrales de Cirugía diseñados a la medida de cada procedimiento quirúrgico, garantizando la máxima eficiencia operativa en el entorno hospitalario.</p>
+                  <img
+                    src="/e4159b9b30428947d025c263c586a9917ea6adeb.jpg"
+                    alt="Kits integrales de cirugía"
+                    className="accordion-mobile-image"
+                  />
                   <button className="accordion-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Saber más</button>
                 </div>
               </div>
@@ -382,6 +397,11 @@ export default function Home() {
               <div className="accordion-content">
                 <div className="accordion-content-inner">
                   <p>Implementamos un sistema de Farmacovigilancia de Origen que asegura trazabilidad y control integral desde el primer momento, reforzando la seguridad en toda la cadena.</p>
+                  <img
+                    src="/b8d97faae0a184f78bf737925371f0dd8d866d82.png"
+                    alt="Farmacovigilancia de origen"
+                    className="accordion-mobile-image"
+                  />
                   <button className="accordion-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Saber más</button>
                 </div>
               </div>
@@ -1329,6 +1349,10 @@ export default function Home() {
           line-height: 1.6;
           margin: 0;
           font-family: var(--font-manrope);
+        }
+
+        .accordion-mobile-image {
+          display: none;
         }
 
         .accordion-button {
@@ -2484,6 +2508,24 @@ export default function Home() {
         @media (max-width: 767px) {
           .representation-logo-box{
             flex-direction:column;
+          }
+
+          .accordion-item.open .accordion-content {
+            max-height: 700px;
+          }
+
+          .accordion-mobile-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            object-fit: cover;
+          }
+
+          .accordion-mobile-image--zoom {
+            width: 108%;
+            max-width: none;
+            margin-left: -4%;
           }
 
           .representation-boxes{
